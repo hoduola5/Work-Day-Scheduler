@@ -3,7 +3,7 @@ $(document).ready( function () {
 let currentDayEl = $('#currentDay');
 // let timeblockContainerEl = $('.container');
 let timeblockInputEl = $('.timeblock');
-// let saveButtonEl = $('#save');
+let saveButtonEl = $('#save');
 let nineEl = $('#nine');
 let tenEl = $('#ten');
 let elevenEl = $('#eleven');
@@ -135,5 +135,42 @@ function currentState() {
   
 }
 currentState();
+
+// Get input values
+let timeblock1 = $("timeblock-input-1").val();
+let timeblock2 = $("timeblock-input-2").val();
+let timeblock3 = $("timeblock-input-3").val();
+let timeblock4 = $("timeblock-input-4").val();
+let timeblock5 = $("timeblock-input-5").val();
+let timeblock6 = $("timeblock-input-6").val();
+let timeblock7 = $("timeblock-input-7").val();
+let timeblock8 = $("timeblock-input-8").val();
+
+// Save input datas to retrieve later
+localStorage.setItem("timeblock1", timeblock1);
+localStorage.setItem("timeblock2", timeblock2);
+localStorage.setItem("timeblock3", timeblock3);
+localStorage.setItem("timeblock4", timeblock4);
+localStorage.setItem("timeblock5", timeblock5);
+localStorage.setItem("timeblock6", timeblock6);
+localStorage.setItem("timeblock7", timeblock7);
+localStorage.setItem("timeblock8", timeblock8);
+
+//Create a save button with each timeblock that allow user to save on local storage when clicked.
+saveButtonEl.on("click", function (timeblock1) {
+ localStorage.setItem("timeblock1", JSON.stringify(timeblock1));
+ console.log(timeblock1);
+ // return timeblock1;
+})
+
+// // saveBtn click listener 
+// $(".saveButtonEl").on("click", function () {
+//   // Get nearby values of the description in JQuery
+//   var text = $(this).siblings(".description").val();
+//   var time = $(this).parent().attr("id");
+
+//   // Save text in local storage
+//   localStorage.setItem(time, text);
+// })
 
 })
